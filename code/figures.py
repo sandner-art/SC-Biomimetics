@@ -23,7 +23,7 @@ plt.rcParams.update({
 })
 
 # Figure 5: Biomimetic Implementation Strategies and Evolution
-def create_figure5():
+def create_figure5_corrected():
     fig = plt.figure(figsize=(14, 8)) # Adjusted for better layout
     gs = GridSpec(2, 3, figure=fig, hspace=0.4, wspace=0.3)
 
@@ -39,7 +39,7 @@ def create_figure5():
     for i in range(5):
         y_layer = -0.2 - i * 0.3
         ax1.axhline(y=y_layer, xmin=0.375, xmax=0.625, color='blue', linewidth=1.5, alpha=0.7)
-    ax1.text(0.4, -1.0, "Layered\nChitin", ha='center', va='center', fontsize=8, color='blue')
+    ax1.text(0.64, -1.6, "Layered\nChitin", ha='center', va='center', fontsize=8, color='blue')
 
     # Light rays (simplified bending)
     ax1.arrow(0, 0.4, 0, -0.5, head_width=0.05, head_length=0.1, fc='red', ec='red', alpha=0.6, length_includes_head=True)
@@ -54,7 +54,7 @@ def create_figure5():
     ax1.set_xlim(-0.7, 0.7)
     ax1.set_ylim(-2.5, 0.7)
     ax1.set_title('A) Insect: Layered Ommatidium')
-    ax1.set_xlabel('Schematic View')
+    # ax1.set_xlabel('Schematic View') # Removed x-axis label
     ax1.set_ylabel('')
     ax1.set_xticks([])
     ax1.set_yticks([])
@@ -82,7 +82,7 @@ def create_figure5():
     ax2.set_xlim(-1.2, 1.2)
     ax2.set_ylim(-0.7, 0.8)
     ax2.set_title('B) Amphibian: Fluid Chamber Membrane')
-    ax2.set_xlabel('Schematic View')
+    # ax2.set_xlabel('Schematic View') # Removed x-axis label
     ax2.set_ylabel('')
     ax2.legend(fontsize=8, loc='lower center')
     ax2.set_xticks([])
@@ -114,7 +114,7 @@ def create_figure5():
     ax3.set_xlim(-0.8, 0.8)
     ax3.set_ylim(-1.0, 0.8)
     ax3.set_title('C) Bird: Modified Pecten Oculi')
-    ax3.set_xlabel('Schematic View')
+    # ax3.set_xlabel('Schematic View') # Removed x-axis label
     ax3.set_ylabel('')
     ax3.set_xticks([])
     ax3.set_yticks([])
@@ -124,16 +124,12 @@ def create_figure5():
     ax4 = fig.add_subplot(gs[1, :2])
     gradient_magnitude = np.logspace(-3, 1, 100)  # Arbitrary units of density gradient strength
 
-    # Sigmoidal response curves (Hill equation like)
     def model_response(x, k_half, n_hill):
         return (x**n_hill) / (k_half**n_hill + x**n_hill)
 
-    # Hypothetical parameters for sensitivity curves
-    # k_half: gradient strength for half-maximal response
-    # n_hill: Hill coefficient (steepness)
     insect_sensitivity = model_response(gradient_magnitude, k_half=0.1, n_hill=1.5)
-    amphibian_sensitivity = model_response(gradient_magnitude, k_half=0.03, n_hill=2.0) # More sensitive
-    bird_sensitivity = model_response(gradient_magnitude, k_half=0.06, n_hill=1.8)    # Intermediate
+    amphibian_sensitivity = model_response(gradient_magnitude, k_half=0.03, n_hill=2.0)
+    bird_sensitivity = model_response(gradient_magnitude, k_half=0.06, n_hill=1.8)
 
     ax4.semilogx(gradient_magnitude, insect_sensitivity, label='Insect Model', linewidth=2.5)
     ax4.semilogx(gradient_magnitude, amphibian_sensitivity, label='Amphibian Model', linewidth=2.5)
@@ -151,35 +147,28 @@ def create_figure5():
     ax5 = fig.add_subplot(gs[1, 2])
     stages = ['Basic\nMechanoreception', 'Fluid Structure\nSensitivity',
               'Optical Amplification\nMechanisms', 'Spatial\nResolution', 'Integrated Schlieren\nVision']
-    # Hypothetical plausibility/novelty scores (lower is more plausible or less novel)
-    # Inverted for bar chart: lower bar = earlier/easier stage
     novelty_complexity = np.array([0.1, 0.3, 0.4, 0.7, 0.9])
-
-    colors = plt.cm.coolwarm_r(novelty_complexity / float(max(novelty_complexity))) # Reversed colormap
-
+    colors = plt.cm.coolwarm_r(novelty_complexity / float(max(novelty_complexity)))
     bars = ax5.barh(stages, novelty_complexity, color=colors, edgecolor='black')
 
-    # Add values on bars
     for i, bar in enumerate(bars):
         width = bar.get_width()
         ax5.text(width + 0.01, bar.get_y() + bar.get_height()/2,
                  f'{width:.2f}', ha='left', va='center', fontsize=8)
 
-    ax5.set_xlabel('Evolutionary Novelty/Complexity (Arbitrary Scale)')
+    ax5.set_xlabel('Evolutionary Novelty/Complexity (Arb. Sc.)')
     ax5.set_ylabel('')
     ax5.set_title('E) Plausibility of Evolutionary Stages')
     ax5.set_xlim(0, 1.0)
-    ax5.invert_yaxis() # To show 'Basic' at the top
+    ax5.invert_yaxis()
     ax5.grid(True, axis='x', linestyle='--', alpha=0.3)
 
 
     fig.suptitle('Figure 5: Biomimetic Implementation Strategies and Evolution',
                  fontsize=14, fontweight='bold')
-    # fig.tight_layout(rect=[0, 0, 1, 0.96]) # Adjust layout to make space for suptitle
     return fig
 
 if __name__ == '__main__':
-    # To save the figure if running the script directly
-    fig5 = create_figure5()
-    plt.savefig("figure5_biomimetic_schlieren.png", dpi=300, bbox_inches='tight')
+    fig5_corrected = create_figure5_corrected()
+    plt.savefig("figure5_biomimetic_schlieren_corrected.png", dpi=300, bbox_inches='tight')
     plt.show()
