@@ -61,28 +61,41 @@ def create_figure5_corrected():
     ax1.axis('equal') # Maintain aspect ratio
 
     # Panel B: Amphibian membrane structure (Schematic)
+    # Panel B: Amphibian membrane structure (Schematic) - CORRECTED SHAPE
     ax2 = fig.add_subplot(gs[0, 1])
-    # Nictitating membrane outline
     membrane_x = np.linspace(-1, 1, 100)
-    membrane_top = 0.1 * np.sin(np.pi * membrane_x) + 0.2
-    membrane_bottom = -0.1 * np.sin(np.pi * membrane_x) - 0.2
+
+    # --- Corrected Shape: Biconvex Lens ---
+    # This shape is thickest in the middle and tapers towards the edges.
+    half_thickness_at_edge = 0.05 # Controls how thin the edges are
+    central_bulge_factor = 0.20  # Controls how much it bulges in the center
+
+    # Cosine function to create smooth convex surfaces
+    # np.cos(0) = 1 (center), np.cos(np.pi/2) = 0 (normalized edge if x goes from -1 to 1 -> pi/2 * x)
+    membrane_top = half_thickness_at_edge + central_bulge_factor * np.cos((np.pi / 2) * membrane_x)
+    membrane_bottom = -(half_thickness_at_edge + central_bulge_factor * np.cos((np.pi / 2) * membrane_x))
+    # At x=0 (center): top = 0.05 + 0.20 = 0.25; bottom = -0.25. Total thickness = 0.5
+    # At x= +/-1 (edges): top = 0.05; bottom = -0.05. Total thickness = 0.1
+
     ax2.plot(membrane_x, membrane_top, 'k-', linewidth=1.5)
     ax2.plot(membrane_x, membrane_bottom, 'k-', linewidth=1.5)
     ax2.fill_between(membrane_x, membrane_top, membrane_bottom, color='skyblue', alpha=0.4, label='Fluid Chamber')
 
-    # Pressure sensors
+    # Pressure sensors (adjust y-position if needed based on new shape)
+    sensor_y_position = np.min(membrane_bottom) - 0.05 # Place slightly below the chamber
     sensor_x = np.linspace(-0.7, 0.7, 5)
-    ax2.scatter(sensor_x, np.full_like(sensor_x, -0.25), s=40, c='red', marker='s', label='Pressure Sensors', zorder=5)
+    ax2.scatter(sensor_x, np.full_like(sensor_x, sensor_y_position), s=40, c='red', marker='s', label='Pressure Sensors', zorder=5)
 
-    # Incident and bent light
-    ax2.arrow(0, 0.6, 0, -0.3, head_width=0.05, head_length=0.1, fc='yellow', ec='black', linewidth=1, length_includes_head=True)
-    ax2.arrow(0, 0.3, 0.15, -0.2, head_width=0.05, head_length=0.1, fc='orange', ec='black', linewidth=1, linestyle='--', label='Bent Light', length_includes_head=True)
-    ax2.text(0, 0.7, "Incident Light", ha='center', va='bottom', fontsize=8)
+    # Incident and bent light (adjust arrows if needed for new shape)
+    ax2.arrow(0, 0.6, 0, -(0.6 - np.max(membrane_top) -0.05), head_width=0.05, head_length=0.1, fc='yellow', ec='black', linewidth=1, length_includes_head=True)
+    # Simple representation of bending
+    bent_light_y_end = sensor_y_position + 0.1 # Aim towards general sensor area
+    ax2.arrow(0, np.max(membrane_top)-0.05, 0.15, bent_light_y_end - (np.max(membrane_top)-0.05), head_width=0.05, head_length=0.1, fc='orange', ec='black', linewidth=1, linestyle='--', label='Bent Light', length_includes_head=True)
+    ax2.text(0, 0.65, "Incident Light", ha='center', va='bottom', fontsize=8) # Adjusted y for visibility
 
     ax2.set_xlim(-1.2, 1.2)
-    ax2.set_ylim(-0.7, 0.8)
+    ax2.set_ylim(min(membrane_bottom)-0.2, 0.8) # Adjust ylim to fit new shape and labels
     ax2.set_title('B) Amphibian: Fluid Chamber Membrane')
-    # ax2.set_xlabel('Schematic View') # Removed x-axis label
     ax2.set_ylabel('')
     ax2.legend(fontsize=8, loc='lower center')
     ax2.set_xticks([])
