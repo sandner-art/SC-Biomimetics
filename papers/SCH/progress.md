@@ -13,14 +13,14 @@
 - [x] Literature review
 - [x] Hypothesis development  
 - [x] Methodology design
-- [ ] Data collection/Experiments
+- [x] Data collection/Experiments
 - [x] Data analysis
 - [ ] Results interpretation
 - [x] Paper writing
 - [x] Internal review
 - [ ] Submission preparation
 - [ ] Peer review process
-- [ ] Revisions
+- [x] Revisions
 - [ ] Publication
 
 ## Research Focus
@@ -44,8 +44,8 @@
 - **Started**: 
 - **Target completion**: 
 - **Key milestones**:
-  - 
-  - 
+  - Biomimetic Examples development
+  - Paper Revisions and Bibliography Corrections
 
 ## Resources & Dependencies
 *External resources, datasets, tools, or other papers this work depends on*
