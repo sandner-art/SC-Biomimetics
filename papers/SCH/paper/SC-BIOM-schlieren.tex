@@ -54,11 +54,42 @@ This paper explores the theoretical possibility of biomimetic Schlieren vision �
 
 The ability to perceive the subtle density fluctuations that permeate our world, invisible to the human eye, would open up a new dimension of sensory experience. While we readily perceive the world through variations in light intensity and wavelength (color), a hidden landscape of density variations remains largely inaccessible to our senses. This paper explores the tantalizing possibility of a visual system based on density gradients – a form of "density vision" – and the biophysical principles that could make it a reality. From navigating murky waters to detecting camouflaged objects, the capacity to visualize density gradients would revolutionize sensing technologies across diverse fields, including robotics, medicine, and environmental monitoring. The question, then, is not simply \textit{whether} such a sensory modality is possible, but rather \textit{how} biological systems might evolve to achieve it. Specifically, what are the fundamental biophysical constraints and design principles that govern the possibility of biological systems capable of detecting and interpreting subtle variations in refractive index, and how might these principles be realized through diverse anatomical adaptations?
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/classical_schlieren_system.png} % Replace with your actual filename
+    \caption{Schematic overview of common optical Schlieren imaging techniques.
+    \textbf{(Top)} Classical (Toepler) Schlieren system, utilizing a knife-edge to visualize density gradients as brightness variations.
+    \textbf{(Middle)} Rainbow Schlieren system, employing a color filter to produce a color-coded map of density gradients.
+    \textbf{(Bottom)} Background Oriented Schlieren (BOS) system, which analyzes the apparent distortion of a background pattern to quantify density fields.
+    Further details and biomimetic considerations for these techniques are discussed in Section~\ref{sec:schlieren_principles_biomimetic}.} % Assumes the new subsection has this label
+    \label{fig:schlieren_systems_overview}
+\end{figure}
+
 To answer this question, we must first understand the underlying physics. Schlieren optics, a set of techniques used to visualize density variations in transparent media, relies on a fundamental principle: light bends when it encounters a change in refractive index. The refractive index of a material is, in turn, directly related to its density; denser materials generally have higher refractive indices. Therefore, when light passes through a region with a density gradient (a gradual change in density), it is deflected from its original path. The magnitude of this deflection is proportional to the \textit{change} in refractive index, and thus to the density gradient. However, the challenge lies in the fact that \textit{subtle} density variations, such as those caused by temperature differences in air or salinity gradients in water, produce \textit{extremely small} changes in refractive index, and consequently, very small light deflections. Traditional Schlieren imaging techniques, such as the Z-type configuration or single-mirror setups, overcome this challenge using precise optical arrangements and sensitive detectors. These methods serve as a technological proof-of-concept, demonstrating that density variations \textit{can} be visualized.
 
 The biological world, however, often finds ingenious solutions to seemingly insurmountable challenges. The diversity of sensory modalities across the animal kingdom is a testament to the power of natural selection to shape sensory systems finely tuned to their environment. From the echolocation of bats and dolphins, which use sound waves to "see" in the dark, to the electroreception of sharks and rays, which detect the weak electrical fields produced by other organisms, nature abounds with examples of sensory systems that detect subtle environmental cues imperceptible to humans. Even within the realm of vision, we find remarkable adaptations, such as the infrared vision of snakes, which allows them to "see" the heat emitted by their prey, or the polarization vision of some insects, which enables them to navigate using the polarization patterns of skylight. Might there also be, or have been, organisms capable of sensing subtle differences of density in their surronding? The lateral line system of fish, which detects pressure waves and water movements using mechanoreceptors, and the statocysts of cnidarians, which sense gravity, hint at the possibility of rudimentary density sensing. Although these systems are not specifically designed for Schlieren vision, they demonstrate that biological systems \textit{can} evolve to detect subtle mechanical cues related to density variations.
 
 This paper explores the fundamental principles of biomimetic Schlieren vision, proposing a general framework for how biological systems could detect and interpret density gradients. We first outline the core requirements for any such system, including mechanisms for amplification, detection, and spatial resolution. We then present a general mathematical model that captures the essential physics. Finally, we will explore how these principles might be realized through diverse anatomical adaptations in three hypothetical animal models: a modified insect compound eye, a specialized amphibian nictitating membrane, and a novel adaptation of the avian pecten oculi. This comparative approach highlights the versatility of the underlying principles and suggests potential avenues for the development of bio-inspired sensing technologies.
+
+% Add this label to the subsection for referencing from the figure caption
+\subsection{Schlieren Imaging Principles and Biomimetic Considerations}
+\label{sec:schlieren_principles_biomimetic}
+
+The visualization of otherwise invisible density gradients in transparent media is achieved through various optical techniques collectively known as Schlieren imaging. These methods exploit the fundamental principle that light rays bend (refract) when passing through regions of varying refractive index, which are directly correlated with density changes. Understanding these established techniques provides a crucial foundation for conceptualizing how biological systems might evolve analogous sensory capabilities. Figure~\ref{fig:schlieren_systems_overview} illustrates three common Schlieren modalities.
+
+The \textbf{Classical (Toepler) Schlieren system} (Figure~\ref{fig:schlieren_systems_overview}, Top) typically employs a point or slit light source, collimating optics, a test section where the density gradient (Schlieren object) resides, focusing optics, and a sharp cutoff device (like a knife-edge) positioned at the focal plane of the focusing optics. Light rays deflected by density gradients are differentially blocked or passed by the knife-edge, resulting in an image where these gradients appear as variations in brightness or shadow. The sensitivity is directional, typically perpendicular to the knife-edge.
+
+     \textit{Biomimetic Note: While a direct biological analog with discrete external optical components is not likely, the core principle of amplifying angular deflections and using a differential cutoff could be realized within integrated biological structures. For instance, modified photoreceptive elements or internal anatomical features within an elongated sensory unit could act as distributed knife-edges or phase filters. Some laboratory Schlieren systems utilize a single focusing mirror with the test object placed in front of it (e.g., single-mirror or Z-fold systems with the object in a folded path), effectively creating a long interaction length. A biological counterpart might involve internal reflective layers (akin to a tapetum lucidum) within a compact organ to fold the optical path, allowing light to interact with the surrounding medium over an extended effective distance before encountering a detection/cutoff mechanism.}
+
+The \textbf{Rainbow Schlieren system} (Figure~\ref{fig:schlieren_systems_overview}, Middle) is a variation that often uses a white light source and replaces the knife-edge with a multi-segment color filter (e.g., red-green-blue) at the focal plane. The degree and direction of light deflection determine which color segment the light passes through, rendering the density gradients as a color-coded map.
+
+     \textit{Biomimetic Note: While complex, the principle of spectral filtering based on deflection angle is conceivable. Some organisms possess wavelength-specific photoreceptors or filtering pigments. A biological rainbow Schlieren might involve an array of mechanoreceptors or photoreceptors tuned to respond differently based on the angle (and thus effective wavelength or intensity after passing through a biological "filter") of light that has been spectrally dispersed by a prism-like biological structure or by diffraction from fine gratings after interacting with density gradients.}
+
+The \textbf{Background Oriented Schlieren (BOS) system} (Figure~\ref{fig:schlieren_systems_overview}, Bottom) offers a computationally intensive but optically simpler approach. It involves imaging a known, often structured or random, background pattern through the transparent medium containing density gradients. Refraction caused by these gradients leads to apparent distortions or displacements of the background pattern. These displacements are quantified using image correlation techniques (such as those adapted from Particle Image Velocimetry), allowing for the reconstruction of the density field.
+
+     \textit{Biomimetic Note: BOS is perhaps the most directly analogous to a potential evolutionary pathway for a rudimentary form of density gradient perception. An organism with high-resolution vision could evolve neural mechanisms to detect subtle, correlated distortions or "shimmering" of a familiar background pattern when viewed through a transparent medium with density fluctuations. This requires sophisticated image processing but leverages existing visual acuity. It doesn't require specialized internal Schlieren optics like a knife-edge, but rather the interpretation of how external density fields distort the image of the environment formed by a conventional eye. The "object in focus in front of an inverted mirror" principle doesn't directly map here, as BOS relies on viewing a background *through* the density field.}
+
+Beyond these common methods, other Schlieren-related techniques exist, such as phase-contrast imaging, interferometry (e.g., Mach-Zehnder), and shadowgraphy. Shadowgraphy, the simplest, visualizes second spatial derivatives of the refractive index and relies on light redistribution without a knife-edge; it is sensitive to sharp gradients. While these more specialized techniques also offer insights into visualizing phase objects, the core principles of light deflection, optical path manipulation, and differential detection remain central to understanding the potential biophysical basis for any form of evolved Schlieren vision. Our exploration focuses on biomimetic adaptations drawing inspiration primarily from the fundamental mechanisms demonstrated by the classical, rainbow, and BOS approaches.
 
 \section{Biomimetic Principles of Schlieren Vision}
 
@@ -339,9 +370,35 @@ These experiments, while challenging, would provide valuable insights into the p
 
 \bigskip\noindent\rule{\linewidth}{0.4pt}\bigskip
 
+
 \section{Discussion}
 
 This paper has presented a theoretical framework for biomimetic Schlieren vision, exploring the fundamental biophysical principles and proposing three distinct anatomical adaptations that could enable organisms to detect and interpret density gradients. While these models are speculative, they are grounded in established scientific principles and draw inspiration from the remarkable diversity of sensory systems found in nature.
+
+\begin{table}[htbp]
+\centering
+\caption{Biophysical Requirements and Biological Precedents for Density Gradient Sensing.}
+\label{tab:bio_requirements}
+\footnotesize % Adjust font size for the table if needed (e.g., \footnotesize, \small, \normalsize)
+\begin{tabularx}{\textwidth}{@{}L L L c L@{}} % Use tabularx for width control
+\toprule
+\thead{Requirement} & \thead{Biological\\Precedent} & \thead{Organism\\Examples} & \thead{Sensitivity Range} & \thead{Potential\\for Schlieren\\Adaptation} \\
+\midrule
+\textbf{Mechano-receptor Sensitivity} & Hair cells (lateral line) & Fish, amphibian larvae & \SI{1e-12}{m} -- \SI{1e-9}{m} displacement & High - already detect minute pressure changes \\
+& Campaniform sensilla & Insects & \SI{1e-9}{} -- \SI{1e-6}{} strain & Moderate - sensitive to cuticular deformation \\
+& Statocyst hair cells & Cnidarians, mollusks & \SI{1e-11}{m} -- \SI{1e-8}{m} displacement & Moderate - gravity sensing mechanism \\
+\addlinespace % Adds a small vertical space
+\textbf{Refractive Index Manipulation} & Crystalline lens & Vertebrates & $\Delta n \approx 0.1-0.4$ & Low - large changes, not gradual \\
+& Compound eye optics & Arthropods & $\Delta n \approx 0.05-0.2$ & Moderate - layered structure exists \\
+& Nictitating membrane & Amphibians, birds & Variable thickness & High - already fluid-containing \\
+\addlinespace
+\textbf{Spatial Resolution} & Ommatidial array & Insects & \num{1e1}-\num{1e4} units/eye & High - modular architecture \\
+& Neuromast array & Fish & \num{10}-\num{200} units/system & Moderate - distributed sensing \\
+& Retinal organization & Vertebrates & \num{1e6}-\num{1e8} cells/retina & High - high-density arrays \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 
 \subsection{Summary of Findings}
 
@@ -362,7 +419,7 @@ The different biological models we have proposed could inspire different technol
 
 \subsection{Limitations and Future Research}
 
-It is important to acknowledge the limitations of this study. Our models are theoretical and speculative, based on extrapolations from known biological principles. We have made simplifying assumptions in our mathematical model and have not addressed all the complexities of biological systems (e.g., detailed neural processing, developmental constraints).
+It is important to acknowledge the limitations of this study. Our models are theoretical and based on extrapolations from known biological principles. We have made simplifying assumptions in our mathematical model and have not addressed all the complexities of biological systems (e.g., detailed neural processing, developmental constraints).
 
 Future research should focus on:
 \begin{itemize}
@@ -378,7 +435,7 @@ Future research should focus on:
 
 \subsection{Restate Main Contributions}
 
-This paper has presented a novel framework for understanding the potential for biological systems to evolve Schlieren vision. While no known organism possesses this capability in the form described here, we have demonstrated that it is theoretically plausible and have outlined the fundamental biophysical principles and design requirements for such a system. We have proposed three distinct anatomical adaptations, inspired by insect, amphibian, and avian visual systems, each offering a unique approach to amplifying and detecting subtle refractive index variations.
+This paper has presented a novel viewpoints for understanding the potential for biological systems to evolve Schlieren vision. While no known organism possesses this capability in the form described here, we have demonstrated that it is theoretically plausible and have outlined the fundamental biophysical principles and design requirements for such a system. We have proposed three distinct anatomical adaptations, inspired by insect, amphibian, and avian visual systems, each offering a unique approach to amplifying and detecting subtle refractive index variations.
 
 \subsection{Broader Significance}
 
