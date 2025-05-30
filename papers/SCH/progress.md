@@ -2,11 +2,11 @@
 
 **Paper Title**: A Biomimetic Model for Schlieren Vision
 **Status**: [Active]  
-**Priority**: [Low]  
-**Last Updated**: 2025-05-25
+**Priority**: [Medium]  
+**Last Updated**: 2025-05-30
 
 ## Publication Links
-**Preprint**: [Link when published]  
+**Preprint**: https://doi.org/10.5281/zenodo.15549809  
 **Published**: [DOI link when published]
 
 ## Current Phase
@@ -15,10 +15,10 @@
 - [x] Methodology design
 - [x] Data collection/Experiments
 - [x] Data analysis
-- [ ] Results interpretation
+- [x] Results interpretation
 - [x] Paper writing
 - [x] Internal review
-- [ ] Submission preparation
+- [x] Submission preparation
 - [ ] Peer review process
 - [x] Revisions
 - [ ] Publication
