@@ -54,7 +54,25 @@ This exploratory work delves into:
 
 This research aims to stimulate further thought and investigation into the potential of biological sensory systems and their technological inspiration.
 
+### Citation
 
+If you use this work or the associated code/data, please cite the following paper:
+
+Sandner, Daniel. “A Biomimetic Model for Schlieren Vision: Hypothetical Anatomy and Functional Morphology”. Zenodo, May 30, 2025. [https://doi.org/10.5281/zenodo.15549810](https://doi.org/10.5281/zenodo.15549810)
+
+### BibTeX
+
+```bibtex
+@article{Sandner2025BiomimeticSchlieren,
+  author       = {Sandner, Daniel},
+  title        = {{A Biomimetic Model for Schlieren Vision: Hypothetical Anatomy and Functional Morphology}},
+  publisher    = {Zenodo},
+  year         = {2025},
+  month        = {May},
+  doi          = {10.5281/zenodo.15549810},
+  url          = {https://doi.org/10.5281/zeno_do.15549810}
+}
+```
 ## Contributing
 
 If you have suggestions, find issues, or are interested in contributing resources (especially computational) to this exploratory research, please feel free to open an issue or contact the author.
